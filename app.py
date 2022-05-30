@@ -35,6 +35,7 @@ def show_user(users_id):
 
 @app.route("/<int:users_id>/delete" , methods=["GET","POST"])
 def delete_user(users_id):
+    # print('users_id...', users_id)
     users = Users.query.filter_by(id=users_id).one()
     # users = Users.query.get(users_id)
     if request.method == "POST" :
@@ -45,3 +46,24 @@ def delete_user(users_id):
 
     return render_template("delete.html", users=users) 
     # return "Successfully deleted"
+
+
+@app.route("/<int:users_id>/update" , methods=["GET","POST"])
+def update_user(users_id):
+    users = Users.query.filter_by(id=users_id).first_or_404()
+    if request.method == "POST" :
+        if users:
+            users.name = request.form['name']
+            users.address = request.form['address']
+            db.session.commit()
+            return redirect(f"/{users.id}")
+            
+        # return f"User with id = {id} Does nit exist"
+    return render_template("update.html", users=users) 
+
+
+
+# @app.route("/button",  methods=["POST"])
+# def button(users_id):
+#     print('button...', users_id)
+#     return render_template("delete.html") 

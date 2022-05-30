@@ -13,6 +13,6 @@ class Users(db.Model):
     __tableName__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(50),nullable=False, unique=True)
+    name = db.Column(db.String(50),nullable=True, unique=True)
     address =  db.Column(db.String(50),nullable=True, unique=True)
 

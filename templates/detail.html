@@ -3,4 +3,5 @@
 <p>Address: {{ users.address }}</p>
 
 <a href="/">Go back</a>
-<a href="/<int:users_id>/delete">Delete</a>
+<a href="/{{users.id}}/delete">Delete</a>
+<a href="/{{users.id}}/update">Update</a>

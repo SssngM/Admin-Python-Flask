@@ -4,16 +4,17 @@
 
 {% block content %}
 
-    <h1>Users Info</h1>
+<h1>Users Info</h1>
 <ul>
-  {% for u in users %}
-  <li><a href="/{{ u.id }}">{{ u.name }}</a></li>
-  {% endfor %}
+    {% for u in users %}
+    <li><a href="/{{ u.id }}">{{ u.name }} </a>
+        <!-- {{u.address}} -->
+    </li>
+    {% endfor %}
 </ul>
 <form method="POST">
-  <p>Name:     <input name="name"></p>
-  <p>Address:  <input name="address"></p>
-  <button>Save</button>
+    <p>Name: <input name="name"></p>
+    <p>Address: <input name="address"></p>
+    <button>Save</button>
 </form>
 {% endblock %}
-
