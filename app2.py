@@ -22,7 +22,6 @@ def create_token():
 #   return jsonify({'token':token})
 
 #random으로 발행 
-    # random_string = ''.join(random.choice(token) for i in range(5))
     return jsonify({'token':random_string})
 
 # file 발행
