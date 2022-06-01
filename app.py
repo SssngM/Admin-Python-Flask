@@ -1,5 +1,6 @@
-from flask import Flask, request, redirect, render_template, jsonify
+from flask import Flask, request, redirect, render_template, jsonify  , request, Response 
 from models import db, connect_db, Users
+import random, json
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "secret"
@@ -63,7 +64,38 @@ def update_user(users_id):
 
 
 
-# @app.route("/button",  methods=["POST"])
-# def button(users_id):
-#     print('button...', users_id)
-#     return render_template("delete.html") 
+
+
+# token = "dgfat12gf45ag" 
+
+# @app.route("/header" , methods=['POST'])
+# def create_token():
+#     # ID 세션, key, private key확인 (로그인, 회원가입)
+#     # db에 있을 시 -> 토큰 암호화 
+#     return jsonify({'token':token})
+
+    #random으로 발행 
+    # random_string = [random.choice(token) for i in range(5)] 
+    # return jsonify({'token':random_string})
+
+    # file 발행
+    # with open('users.json','r') as f:
+    #     data = json.load(f)
+    # return jsonify({'token':data})
+
+
+
+# @app.route('/test', methods=['GET'])
+# def test():
+#     header_token = request.headers.get('token')
+
+#     # 랜덤
+#     # header_token = request.headers.get('random_string') 
+
+#     # 파일
+#     # header_token = request.headers.get('data')
+
+#     if header_token != token:
+#         return Response(json.dumps({'message':'Need valid token'}), 401)
+
+#     return Response(json.dumps({'message':'Valid token!!!!'}), 200)
